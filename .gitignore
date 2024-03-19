@@ -13,3 +13,9 @@ Assets/*
 !Assets/EditorScripts/
 Assets/EditorScripts/*
 !Assets/EditorScripts/*.cs
+
+!Assets/Scenes/
+Assets/Scenes/*
+!Assets/Scenes/VRCDefaultWorldScene_UdonProgramSources
+Assets/Scenes/VRCDefaultWorldScene_UdonProgramSources/*
+!Assets/Scenes/VRCDefaultWorldScene_UdonProgramSources/*.cs

@@ -6,7 +6,7 @@
     ██║░╚═╝░██║██║░░██║██║░╚███║██████╔╝██║░░██║███████╗██║░░██║
     ╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝╚═════╝░╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝
     triple_groove - meow btw...if you even care
-    
+
     MandalaTool.cs
 
     This script provides a custom editor tool for generating a mandala structure in Unity,
@@ -95,35 +95,7 @@ public class MandalaTool : EditorWindow
             barArray.transform.SetParent(mandalaParent.transform);
             barArray.transform.localPosition = new Vector3(x, y, 0f);
             float rotationAngle = 90f - angle;
-            barArray.transform.localRotation = Quaternion.Euler(rotationAngle, 90f, 0f);
-
-            BarArrayGenerator.GenerateBarArray(barCount, groupLength, verticalScale, barWidth, barHeight, barDepth, barArray.transform);
+            BarArrayGenerator.GenerateBarArray(barCount, groupLength, verticalScale, barWidth, barHeight, barDepth, barArray.transform, rotationAngle, 90f, 0f);
         }
     }
-
-    private void GenerateMandala()
-    {
-        GameObject mandalaParent = new GameObject("Mandala");
-        float angleStep = 360f / numArrays;
-
-        for (int i = 0; i < numArrays; i++)
-        {
-            string barArrayName = "Bar Array " + (i + 1);
-            float angle = i * angleStep;
-            float radians = angle * Mathf.Deg2Rad;
-            float x = Mathf.Cos(radians) * circleWidth;
-            float y = Mathf.Sin(radians) * circleWidth;
-
-            GameObject barArray = new GameObject(barArrayName);
-            barArray.transform.SetParent(mandalaParent.transform);
-            barArray.transform.localPosition = new Vector3(x, y, 0f);
-
-            // Assuming you want the bars to rotate around the y-axis and tilt along the z-axis
-            float rotationAngle = angle;
-            barArray.transform.localRotation = Quaternion.Euler(0f, rotationAngle, 90f);
-
-            BarArrayGenerator.GenerateBarArray(barCount, groupLength, verticalScale, barWidth, barHeight, barDepth, barArray.transform);
-        }
-    }
-
 }
