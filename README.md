@@ -1,5 +1,5 @@
 # Mandala Tool
-The point of this is to eventually make a generator to make Mandala visualizers in my style
+A generator tool to make mandala visualizers in my style.
 
 ![image](https://github.com/triple-groove/MandalaTool/assets/163369748/a29963b4-7038-4269-a01e-9b78d94f60e3)
 ![image](https://github.com/triple-groove/MandalaTool/assets/163369748/4e92e179-442a-4169-963d-46ddaae9713d)
