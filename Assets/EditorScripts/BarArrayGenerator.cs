@@ -39,7 +39,7 @@ using UnityEngine;
 
 public static class BarArrayGenerator
 {
-    public static void GenerateBarArray(int barCount, float groupLength, float verticalScale, float barWidth, float barHeight, float barDepth, Transform mandalaTransform, float rotX, float rotY, float rotZ)
+    public static void GenerateBarArray(int barCount, float groupLength, float verticalScale, float barWidth, float barHeight, float barDepth, Transform mandalaTransform, float rotX, float rotY, float rotZ, Material barMaterial = null)
     {
         float totalLength = CalculateCurveLength(groupLength, verticalScale);
         float distanceStep = totalLength / (barCount - 1);
@@ -79,6 +79,15 @@ public static class BarArrayGenerator
 
             GameObject bar = GameObject.CreatePrimitive(PrimitiveType.Cube);
             bar.transform.localScale = new Vector3(barDepth, barHeight, barWidth);
+
+            // Remove the collider component from the bar
+            Object.DestroyImmediate(bar.GetComponent<Collider>());
+
+            // Assign the specified material to the bar
+            if (null !=barMaterial)
+            {
+                bar.GetComponent<Renderer>().material = barMaterial;
+            }
 
             Vector3 position = new Vector3(x - groupLength * 0.5f, y, 0f);
             bar.transform.position = position;
